@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login</title>
+        <link rel="stylesheet" href="../static/styles/register.css">
+    </head>
+    <body>
+        <a href="/" id="back">X</a>
+        <h1>Login</h1>
+        <form method="post" class="activityContainer">
+            {{ form.hidden_tag() }}
+            <div class="top">
+                <div class="inputContainer">
+                    {{ form.username(class="input", placeholder=form.username.label.text) }}
+                </div>
+                <div class="inputContainer">
+                    {{ form.password(class="input", placeholder=form.password.label.text) }}
+                </div>
+                <div class="bottom">
+                    {{ form.login(class="submit") }}
+                </div>
+            </form>
+            <p style="transform: translate(0, 50%);">don't have an account? <a href="/register">create one here</a></p>
+        </div>
+        {% for errors in form.errors.values() %}
+        {% for error in errors %}
+        <p>{{error}}</p>
+        {% endfor %}
+        {% endfor %}
+    </body>
+</html>

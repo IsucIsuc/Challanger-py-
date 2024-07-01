@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>challenger</title>
+        <link rel="stylesheet" href="../static/styles/main.css">
+    </head>
+    <body>
+        <header>
+            <div class="spacer">
+                <button id="deleteProgress" onclick="deleteProgress()">Delete Progress</button>
+                <a href="">challenger</a>
+            </div>
+            <div class="spacer" id="spacer2">
+                <button id="refreshCards" onclick="randomCards()">refresh cards</button>
+                <div class="difficultySelectors">
+                    <input type="radio" name="diff" id="diffNone" class="difficulty" checked>
+                    <label for="diffNone" id="diffNoneSt" class="difficultySt"></label>
+                    <input type="radio" name="diff" id="diffEasy" class="difficulty">
+                    <label for="diffEasy" id="diffEasySt" class="difficultySt"></label>
+                    <input type="radio" name="diff" id="diffMedium" class="difficulty">
+                    <label for="diffMedium" id="diffMediumSt" class="difficultySt"></label>
+                    <input type="radio" name="diff" id="diffHard" class="difficulty">
+                    <label for="diffHard" id="diffHardSt" class="difficultySt"></label>
+                </div>
+            </div>
+            <p id="completionist">0/20</p>
+            <div class="accounts">
+                {% if current_user.is_authenticated %}
+                <a href="/logout" id="logout" class="accs">Log out</a>
+                {% else %}
+                <a href="/register" id="register" class="accs">Register</a>
+                <a href="/login" id="login" class="accs">Login</a>
+                {% endif %}
+            </div>
+        </header>
+
+
+
+        <section class="mainSection" id="mainSection">
+            <div class="containerer" id="containerer">
+                <div id="1" class="diff-easy activityContainer">
+                    <div class="top">
+                        <h2>test : aim</h2>
+                    </div>
+                    <div class="bottom">
+                        <button type="submit"><a href="./game/1" id="a1">Begin</a></button>
+                    </div>
+                </div>
+                <div id="2" class="diff-easy activityContainer">
+                    <div class="top">
+                        <h2>test : reaction</h2>
+                    </div>
+                    <div class="bottom">
+                        <button type="submit"><a href="./game/2" id="a2">Begin</a></button>
+                    </div>
+                </div>
+                <div id="3" class="diff-easy activityContainer">
+                    <div class="top">
+                        <h2>test : memory</h2>
+                    </div>
+                    <div class="bottom">
+                        <button type="submit"><a href="./game/3" id="a3">Begin</a></button>
+                    </div>
+                </div>
+                <div id="4" class="diff-easy activityContainer">
+                    <div class="top">
+                        <h2>test : cps</h2>
+                    </div>
+                    <div class="bottom">
+                        <button type="submit"><a href="./game/4" id="a4">Begin</a></button>
+                    </div>
+                </div>
+                <div id="5" class="diff-easy activityContainer">
+                    <div class="top">
+                        <h2>test : aim</h2>
+                    </div>
+                    <div class="bottom">
+                        <button type="submit"><a href="./game/5" id="a5">Begin</a></button>
+                    </div>
+                </div>
+                <div id="6" class="diff-easy activityContainer">
+                    <div class="top">
+                        <h2>test : reaction</h2>
+                    </div>
+                    <div class="bottom">
+                        <button type="submit"><a href="./game/6" id="a6">Begin</a></button>
+                    </div>
+                </div>
+                <div id="7" class="diff-easy activityContainer">
+                    <div class="top">
+                        <h2>test : memory</h2>
+                    </div>
+                    <div class="bottom">
+                        <button type="submit"><a href="./game/7" id="a7">Begin</a></button>
+                    </div>
+                </div>
+                <div id="8" class="diff-easy activityContainer">
+                    <div class="top">
+                        <h2>test : cps</h2>
+                    </div>
+                    <div class="bottom">
+                        <button type="submit"><a href="./game/8" id="a8">Begin</a></button>
+                    </div>
+                </div>
+                <div id="9" class="diff-medium activityContainer">
+                    <div class="top">
+                        <h2>test : aim</h2>
+                    </div>
+                    <div class="bottom">
+                        <button type="submit"><a href="./game/9" id="a9">Begin</a></button>
+                    </div>
+                </div>
+                <div id="10" class="diff-medium activityContainer">
+                    <div class="top">
+                        <h2>test : reaction</h2>
+                    </div>
+                    <div class="bottom">
+                        <button type="submit"><a href="./game/10" id="a10">Begin</a></button>
+                    </div>
+                </div>
+                <div id="11" class="diff-medium activityContainer">
+                    <div class="top">
+                        <h2>test : memory</h2>
+                    </div>
+                    <div class="bottom">
+                        <button type="submit"><a href="./game/11" id="a11">Begin</a></button>
+                    </div>
+                </div>
+                <div id="12" class="diff-medium activityContainer">
+                    <div class="top">
+                        <h2>test : cps</h2>
+                    </div>
+                    <div class="bottom">
+                        <button type="submit"><a href="./game/12" id="a12">Begin</a></button>
+                    </div>
+                </div>
+                <div id="13" class="diff-medium activityContainer">
+                    <div class="top">
+                        <h2>test : aim</h2>
+                    </div>
+                    <div class="bottom">
+                        <button type="submit"><a href="./game/13" id="a13">Begin</a></button>
+                    </div>
+                </div>
+                <div id="14" class="diff-medium activityContainer">
+                    <div class="top">
+                        <h2>test : reaction</h2>
+                    </div>
+                    <div class="bottom">
+                        <button type="submit"><a href="./game/14" id="a14">Begin</a></button>
+                    </div>
+                </div>
+                <div id="15" class="diff-medium activityContainer">
+                    <div class="top">
+                        <h2>test : memory</h2>
+                    </div>
+                    <div class="bottom">
+                        <button type="submit"><a href="./game/15" id="a15">Begin</a></button>
+                    </div>
+                </div>
+                <div id="16" class="diff-medium activityContainer">
+                    <div class="top">
+                        <h2>test : cps</h2>
+                    </div>
+                    <div class="bottom">
+                        <button type="submit"><a href="./game/16" id="a16">Begin</a></button>
+                    </div>
+                </div>
+                <div id="17" class="diff-hard activityContainer">
+                    <div class="top">
+                        <h2>test : aim</h2>
+                    </div>
+                    <div class="bottom">
+                        <button type="submit"><a href="./game/17" id="a17">Begin</a></button>
+                    </div>
+                </div>
+                <div id="18" class="diff-hard activityContainer">
+                    <div class="top">
+                        <h2>test : reaction</h2>
+                    </div>
+                    <div class="bottom">
+                        <button type="submit"><a href="./game/18" id="a18">Begin</a></button>
+                    </div>
+                </div>
+                <div id="19" class="diff-hard activityContainer">
+                    <div class="top">
+                        <h2>test : memory</h2>
+                    </div>
+                    <div class="bottom">
+                        <button type="submit"><a href="./game/19" id="a19">Begin</a></button>
+                    </div>
+                </div>
+                <div id="20" class="diff-hard activityContainer">
+                    <div class="top">
+                        <h2>test : cps</h2>
+                    </div>
+                    <div class="bottom">
+                        <button type="submit"><a href="./game/20" id="a20">Begin</a></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script src="../static/scripts/main.js"></script>
+        <script src="../static/scripts/memory.js"></script>
+    </body>
+</html>

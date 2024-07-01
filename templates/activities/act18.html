@@ -1,0 +1,20 @@
+{% extends "base2.html" %}
+
+
+{% block title %}
+<title>act18 - reaction</title>
+{% endblock %}
+
+{% block modal %}
+<p>controlls: d,f,j,k
+    lifes: 3, time: 20s
+</p>
+{% endblock %}
+
+{% block call %}
+<div id="endButton"  onclick="setTimeout(myFunction, 20000)">
+{% endblock %}
+
+{% block js %}
+<script src="../../static/act-js/act18.js"></script>
+{% endblock %}

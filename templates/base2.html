@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% block title %}
+        {% endblock %}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="../../static/act-css/activities.css">
+        <link rel="stylesheet" href="../../static/act-css/css(type-mania).css">
+    </head>
+    <body>
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                {% block modal %}
+                {% endblock %}
+                <span class="close">&times;</span>
+            </div>
+        </div>
+
+        {% block call %}
+        {% endblock %}
+            <a href="#" id="beginButton" onclick="begin()">begin</a>
+        </div>
+
+        <div class="clickCircle">
+            <i id="circle1" class="fa-solid fa-circle-left"></i>
+            <i id="circle2" class="fa-solid fa-circle-down"></i>
+            <i id="circle3" class="fa-solid fa-circle-up"></i>
+            <i id="circle4" class="fa-solid fa-circle-right"></i>
+        </div>
+        <p id="end-timer">0/100</p>
+        {% block js %}
+        {% endblock %}
+    </body>
+</html>

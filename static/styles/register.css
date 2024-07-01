@@ -1,0 +1,94 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: inherit;
+  font-family: "comic sans";
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(28, 30, 33);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+body h1 {
+  font-size: 72px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+body #back {
+  font-size: 72px;
+  position: absolute;
+  left: 1%;
+  top: 0;
+  text-decoration: none;
+  font-family: cursive;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  cursor: pointer;
+}
+body .activityContainer {
+  border: 4px solid black;
+  border-radius: 15px;
+  background-color: rgb(20, 20, 20);
+  height: 250px;
+  min-width: 500px !important;
+  margin: 15px 15px 0 15px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgb(30, 30, 30);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+body .activityContainer .top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 70%;
+  width: auto;
+  padding-bottom: 0;
+}
+body .activityContainer .top .inputContainer {
+  padding: 10px;
+  width: 100%;
+}
+body .activityContainer .top .inputContainer .input {
+  padding: 10px;
+  background-color: rgb(30, 30, 30);
+  width: 100%;
+  height: auto;
+  border: none;
+  border-radius: 5px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+body .activityContainer p {
+  padding: 0 20px;
+}
+body .activityContainer .bottom {
+  color: white !important;
+  outline: black;
+  height: 20%;
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+}
+body .activityContainer .bottom .submit {
+  cursor: pointer;
+  background-color: rgb(20, 20, 20);
+  border-radius: 5px;
+  height: 28px;
+  width: 72px;
+  border-color: black;
+  border-style: solid;
+}/*# sourceMappingURL=register.css.map */

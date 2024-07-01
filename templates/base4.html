@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% block title %}
+        {% endblock %}
+        <link rel="stylesheet" href="../../static/act-css/activities.css">
+        <link rel="stylesheet" href="../../static/act-css/activities(type-cps).css">
+    </head>
+    <body>
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                {% block cps %}
+                {% endblock %}
+                <i class="close">&times;</i>
+            </div>
+        </div>
+        
+        <a href="#" id="begin" onclick="myFunction()">begin</a>
+        <a href="#" id="button" draggable="false"></a>
+        {% block counter %}
+        {% endblock %}
+        {% block js %}
+        {% endblock %}
+    </body>
+</html>
