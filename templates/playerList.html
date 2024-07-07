@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Player List</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/leaderboards.css')}}">
+        <script>
+            function addAdmin(userId) {
+                fetch('/playerList/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ user_id: userId, action: "add" })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        alert(data.error);
+                    } else {
+                        alert(data.message);
+                        // Optionally, refresh the page or update the UI
+                        location.reload();
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            }
+            function removeAdmin(userId) {
+                fetch('/playerList/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ user_id: userId, action: "remove" })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        alert(data.error);
+                    } else {
+                        alert(data.message);
+                        // Optionally, refresh the page or update the UI
+                        location.reload();
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            }
+        </script>
+    </head>
+    <body>
+        <a href="/" id="back">X</a>
+        <h1 id="h1">Player List</h1>
+        <main style="width: 40%;">
+            {% for user_data in users_data %}
+                <div class="players">
+                    <b>#{{loop.index}}</b>
+                    <p>{{ user_data['username'] }}</p>
+                    <div>
+                        {% if current_user.role == "Admin" or current_user.role == "Owner" %}
+                            {{user_data['role']}}
+                            {% if not user_data['role'] == "Admin" and not user_data['role'] == "Owner" %}
+                                <button name="{{ user_data.id }}" onclick="addAdmin(name)" id="resetScore" style="width: 28px;">+</button>
+                            {% endif %}
+                        {% endif %}
+                        {% if current_user.role == "Owner" %}
+                            {% if not user_data['role'] == "Owner" %}
+                                <button name="{{ user_data.id }}" onclick="removeAdmin(name)" id="resetScore" style="width: 28px;">-</button>
+                            {% endif %}
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        </main>
+    </body>
+</html>

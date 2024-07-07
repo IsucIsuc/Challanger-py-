@@ -33,8 +33,17 @@ body {
   overflow: hidden;
   background-color: rgb(36, 41, 47);
 }
+body .otherHalf {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50vw;
+  height: 100vh;
+  background-color: white;
+}
 body header {
   height: 10%;
+  width: 100vw;
   background-color: rgb(30, 30, 30);
   display: flex;
   justify-content: space-evenly;
@@ -47,7 +56,19 @@ body header .spacer {
   display: flex;
   flex-direction: row;
 }
-body header .spacer #deleteProgress {
+body header .spacer #deletionForm {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+body header .spacer #deletionForm #deleteProgress {
+  background: none;
+  border: none;
+  padding: 0;
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: inherit;
   padding-right: 20px;
   font-size: 20px;
   font-weight: 600;
@@ -148,6 +169,11 @@ body header .accounts #logout {
   border-left: 1px solid white;
   border-radius: 5px;
 }
+body header #menu {
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+}
 body .mainSection {
   width: 100vw;
   display: flex;
@@ -169,11 +195,16 @@ body .mainSection .containerer .activityContainer {
   margin: 15px 15px 0 15px;
   overflow: hidden;
 }
+body .mainSection .containerer .activityContainer .leaderboardHref {
+  height: 5%;
+  padding: 2px;
+  text-decoration: none;
+}
 body .mainSection .containerer .activityContainer .top {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 70%;
+  height: 65%;
   width: auto;
 }
 body .mainSection .containerer .activityContainer .bottom {

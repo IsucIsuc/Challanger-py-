@@ -1,12 +1,29 @@
 var time = 0;
 var modal = document.getElementById("myModal");
-var btn = document.getElementById("Begin");
 var span = document.getElementsByClassName("close")[0];
+var seconds = 0;
+
+async function sendData(seconds) {
+    try {
+        const response = await fetch('http://127.0.0.1:5000/won/1', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ number: seconds, lastlvl: 1 })
+        });
+        const data = await response.json();
+        console.log('Received from server:', data);
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
 
 modal.style.display = "block";
 span.onclick = function() {
   modal.style.display = "none";
 }
+
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
@@ -23,12 +40,14 @@ if(time < 1){
 document.getElementById(`Begin`).addEventListener(`click`, function begin(){
     document.getElementById(`a`).style.display = `block`;
     document.getElementById(`Begin`).style.display = `none`;
+    seconds = new Date();
+    console.log("started");
 })
 
 document.getElementById(`a`).addEventListener(`click`, function changePosition(){
     var RNG = [];
     var r;
-    for(i = 0; i < 2; i++){
+    for(var i = 0; i < 2; i++){
         r = Math.ceil(Math.random() * 30 + 35);
         RNG.push(r);
     }
@@ -43,8 +62,12 @@ document.getElementById(`a`).addEventListener(`click`, function timeout(){
     document.getElementById(`end-timer`).innerHTML = `${time}/30`;
     if(time > 30){
         localStorage.setItem(`act1`, `true`);
+        seconds = new Date() - seconds;
+        console.log(seconds);
+        sendData(seconds);
         alert(`you won`)
-        location.replace('/')
+        sendData(seconds);
+        location.replace('/won/1')
     }
 })
 
@@ -54,3 +77,5 @@ function myFunction(){
         location.reload();
     }
 }
+
+window.myFunction = myFunction;

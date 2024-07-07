@@ -1,0 +1,91 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+}
+
+.clickCircle{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 900;
+    font-size: 75px;
+    user-select: none;
+}
+
+.clickTime{
+    color: white !important;
+}
+
+
+#endButton{
+    width: min-content;
+    height: min-content;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    #beginButton{
+        font-weight: 900;
+        font-size: 75px;
+        font-family: "comic sans";
+        text-decoration: none;
+        color: white;
+    }
+}
+
+#end-timer{
+    font-weight: 900;
+    font-size: 45px;
+    font-family: "comic sans";
+    color:  white;
+}
+
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 15%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    p{
+        white-space: pre-line;
+    }
+}
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}

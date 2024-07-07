@@ -13,3 +13,6 @@ class LoginForm(FlaskForm):
     username = StringField("Username", validators=[DataRequired(message="The username Field is required")])
     password = PasswordField("Password", validators=[DataRequired(message="The password Field is required"), length(min=8, message="Incorrect password (the password must be at least 8 characters long)")])
     login = SubmitField("login")
+
+class DeletionForm(FlaskForm):
+    delete = SubmitField("Delete Progress")

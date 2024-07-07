@@ -1,7 +1,23 @@
 var time = 0;
 var modal = document.getElementById("myModal");
-var btn = document.getElementById("Begin");
 var span = document.getElementsByClassName("close")[0];
+var seconds = 0;
+
+async function sendData(seconds) {
+    try {
+        const response = await fetch('http://127.0.0.1:5000/won/13', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ number: seconds, lastlvl: 13 })
+        });
+        const data = await response.json();
+        console.log('Received from server:', data);
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
 
 modal.style.display = "block";
 span.onclick = function() {
@@ -23,6 +39,8 @@ if(time < 1){
 document.getElementById(`Begin`).addEventListener(`click`, function begin(){
     document.getElementById(`a`).style.display = `block`;
     document.getElementById(`Begin`).style.display = `none`;
+    seconds = new Date();
+    console.log("started");
 })
 
 document.getElementById(`a`).addEventListener(`click`, function changePosition(){
@@ -43,8 +61,11 @@ document.getElementById(`a`).addEventListener(`click`, function timeout(){
     document.getElementById(`end-timer`).innerHTML = `${time}/30`;
     if(time > 30){
         localStorage.setItem(`act13`, `true`);
+        seconds = new Date() - seconds;
+        console.log(seconds);
+        sendData(seconds);
         alert(`you won`)
-        location.replace('/')
+        location.replace('/won/13')
     }
 })
 

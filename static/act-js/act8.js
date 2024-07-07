@@ -1,4 +1,5 @@
 const buttons = document.getElementById(`button`);
+var seconds = 0;
 buttons.addEventListener(`click`, function(e){
   let x = e.clientX - e.target.offsetLeft;
   let y = e.clientY - e.target.offsetTop;
@@ -13,6 +14,22 @@ buttons.addEventListener(`click`, function(e){
   }, 750);
 })
 
+async function sendData(seconds) {
+  try {
+    const response = await fetch('http://127.0.0.1:5000/won/8', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ number: seconds, lastlvl: 8 })
+    });
+    const data = await response.json();
+    console.log('Received from server:', data);
+  }
+  catch (error) {
+    console.error('Error:', error);
+  }
+}
 
 document.getElementById(`button`).style.display = `None`;
 document.getElementById(`counter`).style.display = `None`;
@@ -37,6 +54,8 @@ function myFunction(){
   document.getElementById(`begin`).style.display = `none`;
   document.getElementById(`button`).style.display = `block`;
   document.getElementById(`counter`).style.display = `block`;
+  seconds = new Date();
+  console.log("started");
 }
 
 document.getElementById(`button`).addEventListener(`click`, timeout);
@@ -45,7 +64,10 @@ function timeout(){
   i++;
   if(i > 49){
     localStorage.setItem(`act4`, `true`);
-    document.getElementById(`button`).setAttribute(`href`, `/`)
+    document.getElementById(`button`).setAttribute(`href`, `/won/8`)
+    seconds = new Date() - seconds;
+    console.log(seconds);
+    sendData(seconds);
     alert(`you won`);
   }
   document.getElementById(`counter`).innerHTML = `${i}/50`;

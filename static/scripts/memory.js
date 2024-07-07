@@ -43,7 +43,6 @@ var act20a = document.getElementById(`a20`);
 if(localStorage.getItem(`act1`)){
     act1.style.boxShadow = "0 0 15px green";
     act1a.innerHTML = "Retry";
-    act1a.innerHTML = "Retry";
 }else{
     act1.style.boxShadow = "none";
 }

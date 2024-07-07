@@ -1,6 +1,23 @@
 var modal = document.getElementById("myModal");
 var btn = document.getElementById("Begin");
 var span = document.getElementsByClassName("close")[0];
+var seconds = 0;
+
+async function sendData(seconds) {
+    try {
+        const response = await fetch('http://127.0.0.1:5000/won/18', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ number: seconds, lastlvl: 18 })
+        });
+        const data = await response.json();
+        console.log('Received from server:', data);
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
 
 modal.style.display = "block";
 span.onclick = function() {
@@ -33,6 +50,8 @@ function begin(){
     document.getElementById(`circle3`).style.display = `inline`;
     document.getElementById(`circle4`).style.display = `inline`;
     idk();
+    seconds = new Date();
+    console.log("started");
 }
 
 while(RNG.length < 101){
@@ -94,8 +113,11 @@ function idk(){
     document.getElementById(`end-timer`).innerHTML = `${end}/100`;
     if(end > 100 && death < 3){
         localStorage.setItem(`act18`, `true`);
+        seconds = new Date() - seconds;
+        console.log(seconds);
+        sendData(seconds);
         alert(`you win`)
-        location.replace('/');
+        location.replace('/won/18')
     }
     window.addEventListener('keydown', (event) => {
         if(event.key == 'd' && n == 1){

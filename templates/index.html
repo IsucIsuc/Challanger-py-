@@ -5,12 +5,18 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>challenger</title>
+        <script src="https://kit.fontawesome.com/cfb0ccc83b.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="../static/styles/main.css">
     </head>
     <body>
+        
         <header>
             <div class="spacer">
-                <button id="deleteProgress" onclick="deleteProgress()">Delete Progress</button>
+                <!-- <button id="deleteProgress" onclick="deleteProgress()">Delete Progress</button> -->
+                <form method="post" id="deletionForm">
+                    {{ form.hidden_tag() }}
+                    {{ form.delete(id="deleteProgress", onclick="deleteProgress()") }}
+                </form>
                 <a href="">challenger</a>
             </div>
             <div class="spacer" id="spacer2">
@@ -26,7 +32,11 @@
                     <label for="diffHard" id="diffHardSt" class="difficultySt"></label>
                 </div>
             </div>
-            <p id="completionist">0/20</p>
+            {% if showAuthScore %}
+                <p id="completionist">{{won}}/20</p>
+            {% else %}
+                <p id="completionist">0/20</p>
+            {% endif %}
             <div class="accounts">
                 {% if current_user.is_authenticated %}
                 <a href="/logout" id="logout" class="accs">Log out</a>
@@ -35,13 +45,15 @@
                 <a href="/login" id="login" class="accs">Login</a>
                 {% endif %}
             </div>
+            <i class="fa-solid fa-bars fa-2x" id="menu"></i>
         </header>
 
 
-
+        
         <section class="mainSection" id="mainSection">
             <div class="containerer" id="containerer">
                 <div id="1" class="diff-easy activityContainer">
+                    <a href="/leaderboards/aimEasy" class="leaderboardHref">?</a>
                     <div class="top">
                         <h2>test : aim</h2>
                     </div>
@@ -50,6 +62,7 @@
                     </div>
                 </div>
                 <div id="2" class="diff-easy activityContainer">
+                    <a href="/leaderboards/reaction" class="leaderboardHref">?</a>
                     <div class="top">
                         <h2>test : reaction</h2>
                     </div>
@@ -58,6 +71,7 @@
                     </div>
                 </div>
                 <div id="3" class="diff-easy activityContainer">
+                    <a href="/leaderboards/memoryEasy" class="leaderboardHref">?</a>
                     <div class="top">
                         <h2>test : memory</h2>
                     </div>
@@ -66,6 +80,7 @@
                     </div>
                 </div>
                 <div id="4" class="diff-easy activityContainer">
+                    <a href="/leaderboards/cpsEasy" class="leaderboardHref">?</a>
                     <div class="top">
                         <h2>test : cps</h2>
                     </div>
@@ -74,6 +89,7 @@
                     </div>
                 </div>
                 <div id="5" class="diff-easy activityContainer">
+                    <a href="/leaderboards/aimEasy" class="leaderboardHref">?</a>
                     <div class="top">
                         <h2>test : aim</h2>
                     </div>
@@ -82,6 +98,7 @@
                     </div>
                 </div>
                 <div id="6" class="diff-easy activityContainer">
+                    <a href="/leaderboards/reaction" class="leaderboardHref">?</a>
                     <div class="top">
                         <h2>test : reaction</h2>
                     </div>
@@ -90,6 +107,7 @@
                     </div>
                 </div>
                 <div id="7" class="diff-easy activityContainer">
+                    <a href="/leaderboards/memoryEasy" class="leaderboardHref">?</a>
                     <div class="top">
                         <h2>test : memory</h2>
                     </div>
@@ -98,6 +116,7 @@
                     </div>
                 </div>
                 <div id="8" class="diff-easy activityContainer">
+                    <a href="/leaderboards/cpsEasy" class="leaderboardHref">?</a>
                     <div class="top">
                         <h2>test : cps</h2>
                     </div>
@@ -106,6 +125,7 @@
                     </div>
                 </div>
                 <div id="9" class="diff-medium activityContainer">
+                    <a href="/leaderboards/aimMed" class="leaderboardHref">?</a>
                     <div class="top">
                         <h2>test : aim</h2>
                     </div>
@@ -114,6 +134,7 @@
                     </div>
                 </div>
                 <div id="10" class="diff-medium activityContainer">
+                    <a href="/leaderboards/reaction" class="leaderboardHref">?</a>
                     <div class="top">
                         <h2>test : reaction</h2>
                     </div>
@@ -122,6 +143,7 @@
                     </div>
                 </div>
                 <div id="11" class="diff-medium activityContainer">
+                    <a href="/leaderboards/memoryMed" class="leaderboardHref">?</a>
                     <div class="top">
                         <h2>test : memory</h2>
                     </div>
@@ -130,6 +152,7 @@
                     </div>
                 </div>
                 <div id="12" class="diff-medium activityContainer">
+                    <a href="/leaderboards/cpsMed" class="leaderboardHref">?</a>
                     <div class="top">
                         <h2>test : cps</h2>
                     </div>
@@ -138,6 +161,7 @@
                     </div>
                 </div>
                 <div id="13" class="diff-medium activityContainer">
+                    <a href="/leaderboards/aimMed" class="leaderboardHref">?</a>
                     <div class="top">
                         <h2>test : aim</h2>
                     </div>
@@ -146,6 +170,7 @@
                     </div>
                 </div>
                 <div id="14" class="diff-medium activityContainer">
+                    <a href="/leaderboards/reaction" class="leaderboardHref">?</a>
                     <div class="top">
                         <h2>test : reaction</h2>
                     </div>
@@ -154,6 +179,7 @@
                     </div>
                 </div>
                 <div id="15" class="diff-medium activityContainer">
+                    <a href="/leaderboards/memoryMed" class="leaderboardHref">?</a>
                     <div class="top">
                         <h2>test : memory</h2>
                     </div>
@@ -162,6 +188,7 @@
                     </div>
                 </div>
                 <div id="16" class="diff-medium activityContainer">
+                    <a href="/leaderboards/cpsMed" class="leaderboardHref">?</a>
                     <div class="top">
                         <h2>test : cps</h2>
                     </div>
@@ -170,6 +197,7 @@
                     </div>
                 </div>
                 <div id="17" class="diff-hard activityContainer">
+                    <a href="/leaderboards/aimHard" class="leaderboardHref">?</a>
                     <div class="top">
                         <h2>test : aim</h2>
                     </div>
@@ -178,6 +206,7 @@
                     </div>
                 </div>
                 <div id="18" class="diff-hard activityContainer">
+                    <a href="/leaderboards/reaction" class="leaderboardHref">?</a>
                     <div class="top">
                         <h2>test : reaction</h2>
                     </div>
@@ -186,6 +215,7 @@
                     </div>
                 </div>
                 <div id="19" class="diff-hard activityContainer">
+                    <a href="/leaderboards/memoryHard" class="leaderboardHref">?</a>
                     <div class="top">
                         <h2>test : memory</h2>
                     </div>
@@ -194,6 +224,7 @@
                     </div>
                 </div>
                 <div id="20" class="diff-hard activityContainer">
+                    <a href="/leaderboards/cpsHard" class="leaderboardHref">?</a>
                     <div class="top">
                         <h2>test : cps</h2>
                     </div>
@@ -205,5 +236,8 @@
         </section>
         <script src="../static/scripts/main.js"></script>
         <script src="../static/scripts/memory.js"></script>
+        {% if not current_user.is_authenticated %}
+            <script src="../static/scripts/complitionist.js"></script>
+        {% endif %}
     </body>
 </html>

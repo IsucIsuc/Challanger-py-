@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>leaderboards</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/leaderboards.css')}}">
+        <script>
+            function resetScore(data) {
+                const datas = data.split("_")
+                userId = datas[0]
+                category = datas[1]
+                fetch('/leaderboards/' + category + "/", {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ user_id: userId, category: category })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        alert(data.error);
+                    } else {
+                        alert(data.message);
+                        // Optionally, refresh the page or update the UI
+                        location.reload();
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            }
+        </script>
+    </head>
+    <body>
+        <a href="/" id="back">X</a>
+        <h1 id="h1">Leaderboard: {{category}}</h1>
+        <main>
+            {% for user_data in users_data %}
+                <div class="players">
+                    <b>#{{loop.index}}</b>
+                    <p>{{ user_data['username'] }}</p>
+                    {{ user_data["score"] }}
+                    {% if current_user.role == "Admin" or "Owner" %}
+                        <button name="{{ user_data.id }}_{{ category }}" onclick="resetScore(name)" id="resetScore">Reset Score</button>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </main>
+    </body>
+</html>

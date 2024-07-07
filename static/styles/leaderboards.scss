@@ -1,0 +1,58 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  color: white;
+  background-color: rgb(36, 41, 47);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  user-select: none;
+  #back{
+    color: white;
+    font-size: 72px;
+    position: absolute;
+    left: 1%;
+    top: 0;
+    text-decoration: none;
+
+    font-family: cursive;
+
+    user-select: none;
+    cursor: pointer;
+  }
+  main{
+    padding: 15px;
+    background-color: rgb(20, 22, 25);
+    height: 70%;
+    width: 50%;
+    overflow-y: scroll;
+    border-radius: 25px;
+      .players{
+        margin-bottom: 5px;
+        height: 40px;
+        background-color: rgb(36, 41, 47);
+
+        border-radius: 10px;
+
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        #resetScore{
+          height: 28px;
+          width: 90px;
+          color: white;
+          background-color: rgb(23, 23, 23);
+          border-radius: 10px;
+          border: none;
+          cursor: pointer;
+        }
+      }
+  }
+}

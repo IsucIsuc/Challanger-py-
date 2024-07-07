@@ -37,17 +37,6 @@ function deleteProgress() {
     location.reload();
 }
 
-var completion = 0;
-completionist();
-function completionist(){
-    for(var k = 1; k <= 20; k++){
-        if(localStorage.getItem(`act${k}`)){
-            completion++;
-        }
-        document.getElementById(`completionist`).innerHTML = `${completion}/20`;
-    }
-}
-
 function randomCards(){
     if(None.checked){
         for(i = 1; i < 21; i++){
@@ -107,4 +96,10 @@ function randomCards(){
         document.getElementById(`mainSection`).classList.remove(`hAuto`);
         document.getElementById(`mainSection`).classList.add(`h85`);
     }
+}
+
+
+document.getElementById("menu").addEventListener("click", playerList)
+function playerList(){
+    location.replace("/playerList/");
 }

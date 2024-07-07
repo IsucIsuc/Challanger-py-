@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  color: white;
+  background-color: rgb(36, 41, 47);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+body h1 {
+  font-weight: 800;
+  font-size: 72px;
+}
+body h2 {
+  font-weight: 800;
+  font-size: 72px;
+}
+body a {
+  text-decoration: none;
+  font-family: cursive;
+  font-size: 72px;
+  color: white;
+  position: absolute;
+  top: 2%;
+  left: 2%;
+}/*# sourceMappingURL=win.css.map */

@@ -2,6 +2,24 @@ var rngCopy = [];
 var rngCopy2 = [];
 var RNG = [];
 var end = 0;
+var seconds = 0;
+
+async function sendData(seconds) {
+    try {
+        const response = await fetch('http://127.0.0.1:5000/won/19', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ number: seconds, lastlvl: 19 })
+        });
+        const data = await response.json();
+        console.log('Received from server:', data);
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
 while(RNG.length < 16){
     var r = Math.ceil(Math.random() * 16);
     var n = r;
@@ -52,10 +70,10 @@ z = rngCopy2.pop();
 დ = rngCopy2.pop();
 ე = rngCopy2.pop();
 ვ = rngCopy.pop();
-// debugger
-// step1()
 function step1(){
     alert(`your turn`);
+    seconds = new Date();
+    console.log("started");
     document.getElementById(d).addEventListener('click', fail)
     document.getElementById(e).addEventListener('click', fail)
     document.getElementById(h).addEventListener('click', fail)
@@ -74,7 +92,7 @@ function step1(){
     document.getElementById(a).addEventListener('click', step2)
 }function step2(){
     REL1();
-    debugger
+    
     document.getElementById(b).classList.remove('black')
     document.getElementById(b).addEventListener('click', fail)
     document.getElementById(f).addEventListener('click', fail)
@@ -623,6 +641,9 @@ function fail(){
 }
 function Win(){
     localStorage.setItem(`act19`, `true`);
+    seconds = new Date() - seconds;
+    console.log(seconds);
+    sendData(seconds);
     alert('you won')
-    location.replace('/');
+    location.replace('/won/19')
 }

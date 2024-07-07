@@ -1,0 +1,291 @@
+// reset code
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: inherit;
+    font-family: "comic sans";
+}
+button{
+    background: none;
+	border: none;
+	padding: 0;
+	outline: none;
+    cursor: pointer;
+}
+// reset code
+
+.px1056{
+    width:1056px !important;
+}
+.h85{
+    height: 85%;
+}
+.hAuto{
+    height: auto !important;
+}
+body{
+    color: white;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background-color: rgb(36, 41, 47);
+    .otherHalf{
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 50vw;
+        height: 100vh;
+        background-color: white;
+    }
+    header{
+        height: 10%;
+        width: 100vw;
+        background-color: rgb(30, 30, 30);
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+
+        #spacer2{
+            margin-left: 35%;
+        }
+        .spacer{
+            display: flex;
+            flex-direction: row;
+            
+            #deletionForm{
+                display: flex;
+                justify-content: center;
+                align-content: center;
+                #deleteProgress{
+                    // position: absolute;
+                    // top: 3.5%;
+                    // left: 7%;
+                    background: none;
+                    border: none;
+                    padding: 0;
+                    outline: none;
+                    cursor: pointer;
+                    // font-size: 20px;
+                    text-decoration: none;
+                    font-family: inherit;
+    
+                    padding-right: 20px;
+    
+                    font-size: 20px;
+                    font-weight: 600;
+                    font-family: "comic sans";
+    
+                    user-select: none;
+                }
+            }
+            a{
+                text-decoration: none;
+                font-size: xx-large;
+                font-weight: 900;
+                font-family: 'comic sans';
+    
+                user-select: none;
+                cursor: pointer;
+            }
+            #refreshCards{
+                // position: absolute;
+                // right: 30%;
+                border: 2px solid white;
+                border-radius: 15px;
+                height: 20px;
+                width: 100px;
+                background-color: rgb(40, 40, 40);
+                overflow: hidden;
+                user-select: none;
+
+                margin-left: 5%;
+            }
+            .difficultySelectors{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                .difficulty{
+                    visibility: hidden;
+                }
+                .difficultySt{
+                    display: block;
+                    height: 20px;
+                    width: 20px;
+                    // border: 4px solid black;
+                    border-radius: 100%;
+                    cursor: pointer;
+                }
+                #diffNone:checked + #diffNoneSt{
+                    animation: 0.5s forwards checkedNone;
+                }
+                #diffEasy:checked + #diffEasySt{
+                    animation: 0.5s forwards checkedEasy;
+                }
+                #diffMedium:checked + #diffMediumSt{
+                    animation: 0.5s forwards checkedMedium;
+                }
+                #diffHard:checked + #diffHardSt{
+                    animation: 0.5s forwards checkedHard;
+                }
+                #diffNoneSt{
+                    background-color: rgb(168, 168, 168);
+                }
+                #diffEasySt{
+                    background-color: green;
+                }
+                #diffMediumSt{
+                    background-color: orange;
+                }
+                #diffHardSt{
+                    background-color: red;
+                }
+            }
+        }
+        #completionist{
+            // position: absolute;
+            // top: auto;
+            // left: 90%;
+
+            font-size: 25px;
+            font-weight: 700;
+            font-family: "comic sans";
+        }
+        .accounts{
+            display: flex;
+            flex-direction: row;
+            .accs{
+                display: block;
+                text-decoration: none;
+                width: 64px;
+                height: auto;
+                text-align: center;
+            }
+            #register{
+                border: 2px solid white;
+                border-right: 1px solid white;
+                border-radius: 5px 0 0 5px;
+            }
+            #login{
+                border: 2px solid white;
+                border-left: 1px solid white;
+                border-radius: 0 5px 5px 0;
+            }
+            #logout{
+                border: 2px solid white;
+                border-left: 1px solid white;
+                border-radius: 5px;
+            }
+        }
+        #menu{
+            width: 28px;
+            height: 28px;
+            cursor: pointer;
+        }
+    }
+    .mainSection{
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 14px;
+        .containerer{
+            width: 1320px;
+            display: flex;
+            flex-flow: row wrap;
+            .activityContainer{
+                border: 4px solid black;
+                border-radius: 15px;
+                background-color: rgb(36, 36, 36);
+                height: 300px;
+                min-width: 234px !important;
+                margin: 15px 15px 0 15px;
+                overflow: hidden;
+                .leaderboardHref{
+                    height: 5%;
+                    padding: 2px;
+                    text-decoration: none;
+                }
+                .top{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 65%;
+                    width: auto;
+                }
+                .bottom{
+                    color: white !important;
+                    outline: black;
+                    height: 30%;
+                    width: auto;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    button{
+                        a{
+                            font-size: 20px;
+                            text-decoration: none;
+                            font-family: inherit;
+                        }
+                    }
+
+                }
+            }
+            .diff-easy{
+                color: green;
+                border: 5px solid green;
+                .bottom{
+                    background-color: rgb(20, 20, 20);
+                }
+            }
+            .diff-medium{
+                color: orange;
+                border: 5px solid orange;
+                .bottom{
+                    background-color:  rgb(20, 20, 20);
+                }
+            }
+            .diff-hard{
+                color: red;
+                border: 5px solid red;
+                .bottom{
+                    background-color:  rgb(20, 20, 20);
+                }
+            }
+        }
+    }
+}
+
+@keyframes checkedNone {
+    from{
+        box-shadow: none;
+    }
+    to{
+        box-shadow: 0 0 15px white;
+    }
+}
+@keyframes checkedEasy {
+    from{
+        box-shadow: none;
+    }
+    to{
+        box-shadow: 0 0 15px green;
+    }
+}
+@keyframes checkedMedium {
+    from{
+        box-shadow: none;
+    }
+    to{
+        box-shadow: 0 0 15px orange;
+    }
+}
+@keyframes checkedHard {
+    from{
+        box-shadow: none;
+    }
+    to{
+        box-shadow: 0 0 15px red;
+    }
+}
